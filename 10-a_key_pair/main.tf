@@ -12,7 +12,7 @@ resource "aws_subnet" "mtc_public_subnet" {
   vpc_id                  = aws_vpc.mtc_vpc.id
   cidr_block              = "10.123.1.0/24"
   map_public_ip_on_launch = true
-  availability_zone       = "us-west-2a"
+  availability_zone       = "us-east-1a"
 
   tags = {
     Name = "dev-public"
@@ -67,5 +67,5 @@ resource "aws_security_group" "mtc_sg" {
 
 resource "aws_key_pair" "mtc_auth" {
   key_name   = "mtckey"
-  public_key = file("~/.ssh/mtckey.pub")
+  public_key = file("~/.ssh/icloud_aws.pub")
 }
